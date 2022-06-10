@@ -11,12 +11,12 @@ class Contenedor {
             await fs.promises.readFile(`./${nombreArchivo}`, 'utf-8')
                 .then(async (data) => {
                     if(data.length === 0){
-                        console.log('el archivo estaba vacio, se ha reseteado a un arr vacio')
+                        console.log('archivo vacio, se ha reseteado a un arr vacio')
                         await fs.promises.writeFile(`./${nombreArchivo}`, '[]')
                     }
                 })
                 .catch(async (err) => {
-                    console.log('se ha creado el archivo')
+                    console.log('Se ha creado el archivo')
                     await fs.promises.writeFile(`./${nombreArchivo}`, '[]')
                 })
         }
@@ -36,7 +36,7 @@ class Contenedor {
                 let data = JSON.stringify(archivo);
                 await fs.promises.writeFile(`./${this.nombreArchivo}`, data);
                 try {
-                    console.log(`Se ha guardado el archivo, id: ${nuevoObj.id}`);
+                    console.log(`El archivo ha sido guardado con éxito, id: ${nuevoObj.id}`);
                 } catch (error) {
                     console.log(` ocurrio un error ${error}`)
                 }
@@ -49,7 +49,7 @@ class Contenedor {
                 let data = JSON.stringify(archivo);
                 await fs.promises.writeFile(`./${this.nombreArchivo}`, data);
                 try {
-                    console.log(`Se ha guardado el archivo, id: ${nuevoObj.id}`);
+                    console.log(`El archivo ha sido guardado con éxito, id: ${nuevoObj.id}`);
                 } catch (error) {
                     console.log(` ocurrio un error ${error}`)
                 }
@@ -92,47 +92,47 @@ class Contenedor {
     }
 
     async deleteAll() {
-            console.log('se estan borrando los objetos')
+            console.log('borrando los objetos')
             await fs.promises.writeFile(`./${this.nombreArchivo}`, '[]')
             console.log('archivo reseteado con exito')
         
     }
 }
 
-/* COMANDO PARA CREAR EL ARCHIVO */
+/* Comando para crear archivo */
 const productos = new Contenedor('productos.txt'); 
 
 
-/* ARR DE OBJ */
+/* Arr de obj */
 const arrProducts = [
     {
         nombre: 'producto1',
-        precio: '400'
+        precio: '300'
     },
     {
         nombre: 'producto2',
-        precio: '500'
+        precio: '400'
     },
     {
         nombre: 'producto3',
-        precio: '600'
+        precio: '700'
     },
     {
         nombre: 'producto4',
-        precio: '560'
+        precio: '450'
     },
     {
         nombre: 'producto5',
-        precio: '310'
+        precio: '330'
     },
     {
         nombre: 'producto6',
-        precio: '75'
+        precio: '100'
     }
 ]
 
 
-// /* FOR PARA AGREGAR MAS DE UN ELEMENTO A LA VEZ */
+// /* Agrega más de un elemento a la vez */
 // for(let i = 0; i < arrProducts.length; i++){
 //     setTimeout(() => {
 //     productos.save(arrProducts[i])
